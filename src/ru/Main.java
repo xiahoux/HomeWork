@@ -1,5 +1,7 @@
 package ru;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -15,11 +17,32 @@ public class Main {
         //Задание 1.3 Напишите программный код, в котором все данные хранятся только в переменных трех типов данных:
         //Ссылочные, примитивные и своего класса содержащего: конструктор и метод отображения данных.
         //Выведите написанные данные.
-        int brightness = 2;
+        int brightness = 999995;
         String color = "Зелёный";
         Lamp lamp1 = new Lamp(color, brightness);
         System.out.println(lamp1.toString());
         lamp1.setOn(true);
         System.out.println(lamp1.toString());
+
+        //Задание 1.4 Дополните предыдущий код сравнением ваших данных с другой переменной,
+        //данный код должен имитировать простейший поиск перебором.
+        //Оцените время выполнения алгоритма с помощью базового метода System.nanoTime().
+        int[] array = new int[1000000];
+        for (int i = 0; i < 1000000; i++) {
+            array[i] = i;
+        }
+        //Поиск первого числа, больше указанной яркости - 87.
+        //System.out.println(Arrays.toString(array));
+        double t = System.nanoTime();
+        for (int i = 0; i < array.length-1; i++) {
+            if(array[i] > brightness) {
+                System.out.println("Найдено первое число, больше указанного: " + array[i]);
+                t = System.nanoTime() - t;
+                System.out.println("Время поиска перебором: " + t);
+                break;
+
+            }
+
+        }
     }
 }
