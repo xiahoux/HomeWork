@@ -1,48 +1,52 @@
 package ru;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class Main {
+    public static Random rand = new Random();
+    public static final int SIZE = 1000000;
 
     public static void main(String[] args) {
-	    // Задание 1.1 Приведите пример алгоритмов и структур данных из жизни.
-            // В качестве примера алогоритма из жизни можно привести пополнение проездного.
-            //Подойти к кассе, дать кассиру проездной, сообщить на какую сумму пополнить, выбрать тип оплаты и оплатить.
-            // В качестве примера структур данных подойдёт коробка с комиксами, где они лежат друг на друге, образуя Стек (LIFO).
-        //Задание 2.2 Приведите пример алгоритмов и структур данных в программировании.
-            //Алгоритм копирования массивов, где последовательно значение каждой ячейки исходного массива копируется в ячейку
-            //с соответствующим номером массива-копии.
-            //Пример структур данных в программировании - массив.
+	    // Задание 2.1 На основе программного кода из домашнего задания №1 реализуйте массив на основе существующих примитивных или ссылочных типов данных.
+        //Выполните обращение к массиву и базовые операции класса Arrays.
+        //Оценить выполненные методы с помощью базового класса System.nanoTime().
 
-        //Задание 1.3 Напишите программный код, в котором все данные хранятся только в переменных трех типов данных:
-        //Ссылочные, примитивные и своего класса содержащего: конструктор и метод отображения данных.
-        //Выведите написанные данные.
-        int brightness = 999995;
-        String color = "Зелёный";
-        Lamp lamp1 = new Lamp(color, brightness);
-        System.out.println(lamp1.toString());
-        lamp1.setOn(true);
-        System.out.println(lamp1.toString());
+        int[] array = new int[SIZE];
+        fillingRandArray(array);
 
-        //Задание 1.4 Дополните предыдущий код сравнением ваших данных с другой переменной,
-        //данный код должен имитировать простейший поиск перебором.
-        //Оцените время выполнения алгоритма с помощью базового метода System.nanoTime().
-        int[] array = new int[1000000];
-        for (int i = 0; i < 1000000; i++) {
-            array[i] = i;
-        }
-        //Поиск первого числа, больше указанной яркости - 87.
+        int[] array2 = new int[SIZE];
+        fillingSortedArray(array2);
+
+        long time = System.nanoTime();
+        System.out.println(Arrays.toString(array));
+        time = System.nanoTime() - time;
+        System.out.println("Время выполнения toString: " + time/1000000);
+
+        time = System.nanoTime();
+        System.out.println(Arrays.binarySearch(array2, 49900));
+        time = System.nanoTime() - time;
+        System.out.println("Время выполнения двоичного поиска: " + time/1000 );
+
+        time = System.nanoTime();
+        Arrays.sort(array);
+        time = System.nanoTime() - time;
+        System.out.println("Время сортировки методом sort() : " + time/1000000);
         //System.out.println(Arrays.toString(array));
-        double t = System.nanoTime();
-        for (int i = 0; i < array.length-1; i++) {
-            if(array[i] > brightness) {
-                System.out.println("Найдено первое число, больше указанного: " + array[i]);
-                t = System.nanoTime() - t;
-                System.out.println("Время поиска перебором: " + t);
-                break;
+        
+    }
 
-            }
-
+    private static void fillingRandArray(int[] array) {
+        for (int i = 0; i < SIZE; i++) {
+            array[i] = rand.nextInt(99);
         }
     }
+
+    private static void fillingSortedArray(int [] array) {
+        for (int i = 0; i < SIZE; i++) {
+            array[i] = i+1;
+        }
+    }
+
+
 }
