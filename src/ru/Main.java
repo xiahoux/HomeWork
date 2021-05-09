@@ -1,5 +1,6 @@
 package ru;
 
+import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -89,15 +90,23 @@ public class Main {
         System.out.println(Arrays.toString(arrayForSort));
         System.out.println("Сортировка методом sort() заняла " + time);
 
-        /*int[] bubbleArray = new int[400];
+        /*Задание 2.4
+        На основе существующего массива данных из задания 2.3 реализуйте алгоритм сортировки пузырьком.
+        Оцените сортировку с помощью базового класса System.nanoTime().
+                Сравните время выполнения алгоритмы сортировки методом sort() из задания 2.1 и сортировку пузырьком.*/
+
+        int[] bubbleArray = new int[400];
         for (int i = 0; i < bubbleArray.length; i++) {
             bubbleArray[i] = rand.nextInt(400);
         }
-        time = System.nanoTime();
+        long time2 = System.nanoTime();
         bubbleUserSort(bubbleArray);
-        time = System.nanoTime() - time;
+        time2 = System.nanoTime() - time2;
         System.out.println(Arrays.toString(bubbleArray));
-        System.out.println("Сортировка выполнена за " + time);*/
+        System.out.println("Сортировка выполнена за " + time2);
+
+        System.out.println("Время сортировки sort(): " + time);
+        System.out.println("Время сортировки пузырьком: " + time2);
 
 
     }
