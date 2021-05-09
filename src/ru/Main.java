@@ -80,6 +80,7 @@ public class Main {
                 Выполните сортировку с помощью метода sort().
                 Оцените сортировку с помощью базового класса System.nanoTime().*/
 
+
         int[] arrayForSort = new int[400];
         for (int i = 0; i < arrayForSort.length; i++) {
             arrayForSort[i] = rand.nextInt(400);
@@ -95,10 +96,12 @@ public class Main {
         Оцените сортировку с помощью базового класса System.nanoTime().
                 Сравните время выполнения алгоритмы сортировки методом sort() из задания 2.1 и сортировку пузырьком.*/
 
+
         int[] bubbleArray = new int[400];
         for (int i = 0; i < bubbleArray.length; i++) {
             bubbleArray[i] = rand.nextInt(400);
         }
+
         long time2 = System.nanoTime();
         bubbleUserSort(bubbleArray);
         time2 = System.nanoTime() - time2;
@@ -107,6 +110,13 @@ public class Main {
 
         System.out.println("Время сортировки sort(): " + time);
         System.out.println("Время сортировки пузырьком: " + time2);
+
+        time = System.nanoTime();
+        bubbleUserSort(bubbleArray);
+        time = System.nanoTime() - time;
+        System.out.println(Arrays.toString(bubbleArray));
+        System.out.println("Сортировка выполнена за " + time);
+
 
 
     }
