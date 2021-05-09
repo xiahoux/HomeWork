@@ -74,6 +74,30 @@ public class Main {
         }
 
 
+        /*Задание 2.3
+        Создайте массив размером 400 элементов.
+                Выполните сортировку с помощью метода sort().
+                Оцените сортировку с помощью базового класса System.nanoTime().*/
+
+        int[] arrayForSort = new int[400];
+        for (int i = 0; i < arrayForSort.length; i++) {
+            arrayForSort[i] = rand.nextInt(400);
+        }
+        time = System.nanoTime();
+        Arrays.sort(arrayForSort);
+        time = System.nanoTime() - time;
+        System.out.println(Arrays.toString(arrayForSort));
+        System.out.println("Сортировка методом sort() заняла " + time);
+
+        /*int[] bubbleArray = new int[400];
+        for (int i = 0; i < bubbleArray.length; i++) {
+            bubbleArray[i] = rand.nextInt(400);
+        }
+        time = System.nanoTime();
+        bubbleUserSort(bubbleArray);
+        time = System.nanoTime() - time;
+        System.out.println(Arrays.toString(bubbleArray));
+        System.out.println("Сортировка выполнена за " + time);*/
 
 
     }
@@ -108,6 +132,20 @@ public class Main {
             }
         }
         return -1;
+    }
+
+    private static int[] bubbleUserSort(int[] array){
+        int buf;
+        for (int i = 0; i < array.length-1; i++) {
+            for (int j = 1; j < array.length; j++) {
+                if(array[j-1] > array[j]){
+                    buf = array[j-1];
+                    array[j-1] = array[j];
+                    array[j] = buf;
+                }
+            }
+        }
+        return array;
     }
 
 
