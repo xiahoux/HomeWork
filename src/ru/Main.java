@@ -131,6 +131,29 @@ public class Main {
         System.out.println("Время сортировки пузырьком: " + timeBubble);
         System.out.println("Время сортировки выбором:   " + timeSelection);
 
+
+        //Задание 2.6
+        //На основе массива данных из задания 2.3 реализуйте алгоритм сортировки методом вставки.
+        //Оцените сортировку с помощью базового класса System.nanoTime().
+        //Сравните с временем выполнения алгоритмов сортировки из прошлых заданий 2.3, 2.4 и 2.5.
+
+        int[] insertionArray = new int[400];
+        for (int i = 0; i < insertionArray.length; i++) {
+            insertionArray[i] = rand.nextInt(400);
+        }
+
+        long timeInsertion = System.nanoTime();
+        insertionUserSort(insertionArray);
+        timeInsertion = System.nanoTime() - timeInsertion;
+
+        System.out.println(Arrays.toString(insertionArray));
+        System.out.println("Время сортировки sort():    " + time);
+        System.out.println("Время сортировки пузырьком: " + timeBubble);
+        System.out.println("Время сортировки выбором:   " + timeSelection);
+        System.out.println("Время сортировки вставкой:  " + timeInsertion);
+
+
+
     }
 
     private static void fillingRandArray(int[] array) { //Заполнение массива рандомно
@@ -191,6 +214,20 @@ public class Main {
             }
             array[indexMin] = array[i];
             array[i] = min;
+        }
+        return array;
+    }
+    
+    private static int[] insertionUserSort(int[] array){
+        for (int i = 1; i < array.length; i++) {
+            int buf;
+            for (int j = 0; j < i; j++) {
+                if(array[j] > array[i]){
+                    buf = array[j];
+                    array[j] = array[i];
+                    array[i] = buf;
+                }
+            }
         }
         return array;
     }
