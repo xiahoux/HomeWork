@@ -102,22 +102,34 @@ public class Main {
             bubbleArray[i] = rand.nextInt(400);
         }
 
-        long time2 = System.nanoTime();
+        long timeBubble = System.nanoTime();
         bubbleUserSort(bubbleArray);
-        time2 = System.nanoTime() - time2;
+        timeBubble = System.nanoTime() - timeBubble;
         System.out.println(Arrays.toString(bubbleArray));
-        System.out.println("Сортировка выполнена за " + time2);
+        System.out.println("Сортировка выполнена за " + timeBubble);
 
         System.out.println("Время сортировки sort(): " + time);
-        System.out.println("Время сортировки пузырьком: " + time2);
-
-        time = System.nanoTime();
-        bubbleUserSort(bubbleArray);
-        time = System.nanoTime() - time;
-        System.out.println(Arrays.toString(bubbleArray));
-        System.out.println("Сортировка выполнена за " + time);
+        System.out.println("Время сортировки пузырьком: " + timeBubble);
 
 
+        /*Задание 2.5
+        На основе массива данных из задания 2.3 реализуйте алгоритм сортировки методом выбора.
+                Оцените сортировку с помощью базового класса System.nanoTime().
+                Сравните с временем выполнения алгоритмов сортировки из прошлых заданий 2.3 и 2.4.*/
+
+        int[] selectionArray = new int[400];
+        for (int i = 0; i < selectionArray.length; i++) {
+            selectionArray[i] = rand.nextInt(400);
+        }
+
+        long timeSelection = System.nanoTime();
+        selectionUserSort(selectionArray);
+        timeSelection = System.nanoTime() - timeSelection;
+
+        System.out.println(Arrays.toString(selectionArray));
+        System.out.println("Время сортировки sort():    " + time);
+        System.out.println("Время сортировки пузырьком: " + timeBubble);
+        System.out.println("Время сортировки выбором:   " + timeSelection);
 
     }
 
@@ -167,5 +179,20 @@ public class Main {
         return array;
     }
 
+    private static int[] selectionUserSort(int[] array){
+        for (int i = 0; i < array.length-1; i++) {
+            int min = array[i];
+            int indexMin = i;
+            for (int j = i+1; j < array.length; j++) {
+                if(min > array[j]){
+                    min = array[j];
+                    indexMin = j;
+                }
+            }
+            array[indexMin] = array[i];
+            array[i] = min;
+        }
+        return array;
+    }
 
 }
