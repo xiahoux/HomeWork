@@ -1,7 +1,9 @@
 package ru;
 
 import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Random;
 
 public class Main {
@@ -152,7 +154,26 @@ public class Main {
         System.out.println("Время сортировки выбором:   " + timeSelection);
         System.out.println("Время сортировки вставкой:  " + timeInsertion);
 
+        //Задание 3.1
+        //На основе массива из домашнего задания 2.1 реализуйте простой список и коллекцию.
+        //Оцените время выполнения преобразования.
 
+        //Преобразование массива int в массив String
+        String[] strArray = new String[array.length];
+        for (int i = 0; i < array.length; i++) {
+            strArray[i] = String.valueOf(array[i]);
+        }
+        //System.out.println(Arrays.toString(strArray));
+
+        //Создание на основе Стрингового массива - коллекции
+        ArrayList<String> arrList = new ArrayList<>();
+        time = System.nanoTime();
+        Collections.addAll(arrList, strArray);
+        time = System.nanoTime() - time;
+        System.out.println("Время преобразования массива в ArrayList: " + time);
+        /*for (String s: arrList) {
+            System.out.println(s);
+        }*/
 
     }
 
