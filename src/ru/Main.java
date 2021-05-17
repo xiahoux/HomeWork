@@ -163,7 +163,6 @@ public class Main {
         for (int i = 0; i < array.length; i++) {
             strArray[i] = String.valueOf(array[i]);
         }
-        //System.out.println(Arrays.toString(strArray));
 
         //Создание на основе Стрингового массива - коллекции
         ArrayList<String> arrList = new ArrayList<>();
@@ -171,9 +170,36 @@ public class Main {
         Collections.addAll(arrList, strArray);
         time = System.nanoTime() - time;
         System.out.println("Время преобразования массива в ArrayList: " + time);
-        /*for (String s: arrList) {
-            System.out.println(s);
-        }*/
+
+        //Задание 3.2
+        //На основе списка из задания 3.1 реализуйте основные методы добавления,
+        //удаления и получения объекта или элемента из списка.
+        //Оценить выполненные методы с помощью базового класса System.nanoTime().
+
+        time = System.nanoTime();
+        arrList.add("e");
+        time = System.nanoTime() - time;
+        System.out.println("Время выполнения add(e): " + time);
+
+        time = System.nanoTime();
+        arrList.add(7001, "ir");
+        time = System.nanoTime() - time;
+        System.out.println("Время выполнения add(7001, ir): " + time);
+
+        time = System.nanoTime();
+        arrList.remove("e");
+        time = System.nanoTime() - time;
+        System.out.println("Время выполнения remove(e): " + time);
+
+        time = System.nanoTime();
+        arrList.remove(7001);
+        time = System.nanoTime() - time;
+        System.out.println("Время выполнения remove(index: 7001): " + time);
+
+        time = System.nanoTime();
+        System.out.println(arrList.get(8009));
+        time = System.nanoTime() - time;
+        System.out.println("Время выполнения get(8009): " + time);
 
     }
 
