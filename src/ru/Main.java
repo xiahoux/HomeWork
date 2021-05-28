@@ -201,6 +201,34 @@ public class Main {
         time = System.nanoTime() - time;
         System.out.println("Время выполнения get(8009): " + time);
 
+        //Задание 3.3
+        //Реализуйте простой односвязный список и его базовые методы.
+
+        UserLinkedList list = new UserLinkedList();
+        String str1 = "piska";
+        list.addElement(str1);
+        String str2 = "polka";
+        list.addElement(str2);
+        String str3 = "kiska";
+        list.addElement(str3);
+        list.printList();
+        System.out.println("---------");
+
+        String str4 = "vstavka";
+        //list.addFirstElement(str4);
+        list.addElementToIndex(str4, 3);
+        list.printList();
+        System.out.println("---------");
+
+        /*list.deleteFirstElement();
+        list.printList();
+        System.out.println("---------");
+
+        list.deleteLastElement();
+        list.printList();*/
+
+        list.deletElementToIndex(4);
+        list.printList();
     }
 
     private static void fillingRandArray(int[] array) { //Заполнение массива рандомно
