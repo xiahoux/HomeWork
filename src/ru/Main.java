@@ -229,6 +229,38 @@ public class Main {
 
         list.deletElementToIndex(4);
         list.printList();
+        System.out.println("---------");
+
+        DoubleUserLinkedList doubleList = new DoubleUserLinkedList();
+        doubleList.addElement(str1);
+        doubleList.printList();
+        System.out.println("---------");
+
+        doubleList.addElement(str2);
+        doubleList.printList();
+        System.out.println("---------");
+
+        doubleList.addElement(str3);
+        doubleList.printList();
+        System.out.println("---------");
+
+        doubleList.addElementToIndex(str4, 3);
+        doubleList.printList();
+        System.out.println("---------");
+
+        /*doubleList.deleteFirstElement();
+        doubleList.printList();
+        System.out.println("---------");
+
+        doubleList.deleteLastElement();
+        doubleList.printList();
+        System.out.println("---------");*/
+        doubleList.deleteElementToIndex(3);
+        doubleList.printList();
+
+
+
+
     }
 
     private static void fillingRandArray(int[] array) { //Заполнение массива рандомно
