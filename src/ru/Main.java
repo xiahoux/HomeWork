@@ -232,33 +232,25 @@ public class Main {
         System.out.println("---------");
 
         DoubleUserLinkedList doubleList = new DoubleUserLinkedList();
+        
+
+        Lamp lamp = new Lamp("Blue", 777);
+        Lamp lamp2 = new Lamp("Red", 666);
+        Lamp lamp3 = new Lamp("Green", 555);
+
+        System.out.println("---------");
+
+        doubleList.deleteAll();
+        doubleList.printList();
+
         doubleList.addElement(str1);
-        doubleList.printList();
-        System.out.println("---------");
-
         doubleList.addElement(str2);
-        doubleList.printList();
-        System.out.println("---------");
-
         doubleList.addElement(str3);
+        doubleList.addElement(str4);
+        doubleList.addElement(lamp);
+        doubleList.addFirstElement(lamp2);
+        doubleList.addElementToIndex(lamp3, 2);
         doubleList.printList();
-        System.out.println("---------");
-
-        doubleList.addElementToIndex(str4, 3);
-        doubleList.printList();
-        System.out.println("---------");
-
-        /*doubleList.deleteFirstElement();
-        doubleList.printList();
-        System.out.println("---------");
-
-        doubleList.deleteLastElement();
-        doubleList.printList();
-        System.out.println("---------");*/
-        doubleList.deleteElementToIndex(3);
-        doubleList.printList();
-
-
 
 
     }

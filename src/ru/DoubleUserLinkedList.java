@@ -78,7 +78,9 @@ public class DoubleUserLinkedList {
         if(head == null){
             System.out.println("Лист пуст");
         }else{
-            tail.previous.next = null;
+            tail = tail.previous;
+            tail.next = null;
+
         }
     }
 
@@ -104,6 +106,14 @@ public class DoubleUserLinkedList {
                 t = t.next;
                 counter++;
             }
+        }
+    }
+
+    void deleteAll(){
+        ListElement t = this.head;
+        while( t != null ){
+            this.deleteFirstElement();
+            t = head;
         }
     }
 
